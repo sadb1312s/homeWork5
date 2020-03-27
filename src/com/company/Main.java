@@ -68,16 +68,10 @@ public class Main {
         ThreadUtils.runTogether(r1,r2);
 
         //ex 10
-        /*System.out.println("--- ex 10 ---");
-        Greeter.runInOrder(r1,r2);
-        Greeter.runTogether(r1,r2);
+        System.out.println("--- ex 10 ---");
+        ThreadUtils.runTogether(r1,r2);
+        ThreadUtils.runInOrder(r1,r2);
 
-
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }*/
         //ex 11
         System.out.println("--- ex 11 ---");
         String path = "D:/test";

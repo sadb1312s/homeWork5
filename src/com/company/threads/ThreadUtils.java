@@ -10,15 +10,47 @@ import java.util.concurrent.*;
 public class ThreadUtils {
     //exercises with threads
 
-    public static void runTogether(Runnable... threads){
 
+    public void run(Runnable... threads){
         ExecutorService service = Executors.newFixedThreadPool(threads.length);
 
         for(Runnable r : threads){
             service.submit(r);
         }
-        service.shutdown();
 
+
+        waitAll(service);
+    }
+
+    public static void runTogether(Runnable... threads){
+        System.out.println("runTogether");
+        ExecutorService service = Executors.newFixedThreadPool(threads.length);
+
+        for(Runnable r : threads){
+            service.submit(r);
+        }
+        System.out.println("all thread start, return");
+
+
+        waitAll(service);
+
+
+    }
+
+    public static void runInOrder(Runnable... threads){
+        System.out.println("runInOrder");
+        ExecutorService service = Executors.newFixedThreadPool(threads.length);
+
+        for(Runnable r : threads){
+            service.submit(r);
+        }
+
+        waitAll(service);
+        System.out.println("all thread stop, return");
+    }
+
+    static private void waitAll(ExecutorService service){
+        service.shutdown();
         try {
             service.awaitTermination(5, TimeUnit.SECONDS);
         } catch (InterruptedException e) {
@@ -26,12 +58,8 @@ public class ThreadUtils {
         }
     }
 
-    public static void run(Runnable r){
 
-    }
 
-    private static void waitAll(){
 
-    }
 
 }

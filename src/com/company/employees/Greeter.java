@@ -20,14 +20,4 @@ public class Greeter implements Runnable {
             System.out.println("Hello "+target);
         }
     }
-
-    public static void runInOrder(Runnable... tasks){
-        System.out.println("runInOrder");
-
-        for(Runnable r : tasks){
-            r.run();
-        }
-
-        System.out.println("stop");
-    }
 }
