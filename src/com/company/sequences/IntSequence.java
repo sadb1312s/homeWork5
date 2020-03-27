@@ -78,6 +78,44 @@ public class IntSequence implements Sequence<Integer> {
         return next;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        IntSequence that = (IntSequence) o;
+
+        if(this.size != that.size){
+            return false;
+        }else{
+            int x1;
+            int x2;
+
+            this.pointerReset();
+            that.pointerReset();
+
+            while (this.hasNext() && that.hasNext()){
+                x1 = this.next();
+                x2 = that.next();
+
+                if(x1 != x2){
+                    return false;
+                }
+            }
+            return true;
+        }
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = first != null ? first.hashCode() : 0;
+        result = 31 * result + (end != null ? end.hashCode() : 0);
+        result = 31 * result + (pointer != null ? pointer.hashCode() : 0);
+        result = 31 * result + size;
+        return result;
+    }
+
     //utils
     public static IntSequence of(int... x){
         IntSequence seq = new IntSequence();
@@ -92,12 +130,10 @@ public class IntSequence implements Sequence<Integer> {
     public static IntSequence constant(int x){
         //infinity?
         IntSequence sequence = new IntSequence();
-        //make x as border because heap was ended
-        Addable add = (int x2)->{ while (sequence.size < x) sequence.add(x);};
-        add.add(x);
+        //memory may end in infinity
+        Addable addable = (int x2)->{ while (sequence.size < x) sequence.add(x);};
+        addable.add(x);
 
-
-        System.out.println(sequence);
         return sequence;
     }
 }

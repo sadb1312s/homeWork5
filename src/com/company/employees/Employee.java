@@ -1,13 +1,8 @@
 package com.company.employees;
 
-import javax.print.DocFlavor;
-import java.util.Collection;
-import java.util.Random;
-
 public class Employee implements Measurable{
-
-    private int salary;
     private String name;
+    private int salary;
 
     public Employee(String name, int salary) {
         this.salary = salary;
@@ -17,7 +12,7 @@ public class Employee implements Measurable{
     @Override
     public double getMeasure() {
         //measure emp with some way?
-        return salary + new Random().nextInt(10); //it is ok?
+        return salary; //it is ok?
     }
 
     public int getSalary() {

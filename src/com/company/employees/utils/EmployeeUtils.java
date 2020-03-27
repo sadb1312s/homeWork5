@@ -13,12 +13,12 @@ public class EmployeeUtils {
         return result / objects.length;
     }
 
+    //exercise 2
     public Measurable largest(Measurable[] objects){
 
         return findMax(objects);
     }
 
-    //exercise 2
     private Measurable findMax(Measurable[] objects){
 
         Employee max = (Employee)objects[0];

@@ -32,7 +32,7 @@ public class FilesUtils {
         if (mainFile.isDirectory()) {
             System.out.println("Directory");
             System.out.println("with lambda");
-            File[] files = mainFile.listFiles((File f) -> {return  f.isDirectory() && !f.isHidden();});
+            File[] files = mainFile.listFiles((File f) -> f.isDirectory() && !f.isHidden());
 
             for(File f : files){
                 System.out.println(f);

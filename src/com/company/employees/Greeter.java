@@ -1,10 +1,5 @@
 package com.company.employees;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-import java.util.concurrent.CountDownLatch;
-
 public class Greeter implements Runnable {
     private int n;
     private String target;

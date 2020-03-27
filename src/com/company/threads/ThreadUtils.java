@@ -10,18 +10,6 @@ import java.util.concurrent.*;
 public class ThreadUtils {
     //exercises with threads
 
-
-    public void run(Runnable... threads){
-        ExecutorService service = Executors.newFixedThreadPool(threads.length);
-
-        for(Runnable r : threads){
-            service.submit(r);
-        }
-
-
-        waitAll(service);
-    }
-
     public static void runTogether(Runnable... threads){
         System.out.println("runTogether");
         ExecutorService service = Executors.newFixedThreadPool(threads.length);
@@ -33,8 +21,6 @@ public class ThreadUtils {
 
 
         waitAll(service);
-
-
     }
 
     public static void runInOrder(Runnable... threads){
