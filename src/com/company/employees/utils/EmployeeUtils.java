@@ -1,4 +1,4 @@
-package com.company.employees.Utils;
+package com.company.employees.utils;
 
 import com.company.employees.Employee;
 import com.company.employees.Measurable;
